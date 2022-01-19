@@ -1,0 +1,70 @@
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.post-list{
+    /* para empezar la grilla posterior a esto se designan columnas y filas */
+    display: grid;
+    grid-template-columns:repeat(3, minmax(100px, 293px));
+    /* centrar contenido */
+    justify-content:center;
+    /* separancion dentro de ellos */
+    gap: 28px;
+}
+
+.post{
+    /* sale la manito en el puntero */
+    cursor: pointer;
+    position: relative;
+    /* al ser un ancla tiene display inline por defecto */
+    display: block;
+}
+
+.post-image{
+    margin: 0;
+}
+
+.post-image img{
+    width: 100%;
+    /* nos ayuda a dar un margen abajo a las imagenes */
+    vertical-align: top;
+}
+
+.post-overlay{
+    background: rgba(0,0,0, .4);
+    position: absolute;
+    /* tome todo el espacio del padre o contenedor mas cercano con posicion relativa */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: none;
+    /* alineado vertical de los items */
+    align-items: center;
+    /* alineado horizontal */
+    justify-content:center;
+    color: white;
+    text-align: center;
+}
+
+.post:hover .post-overlay{
+    /* flex para posicionar elementos */
+    display: flex;
+}
+
+.post-likes, .post-comments{
+    width: 80px;
+    margin: 5px;
+    /* peso de fuente */
+    font-weight: bold;
+    text-align: center;
+    /* para que el ancho funcione por ser span */
+    display: inline-block;
+}
+
+@media screen and (max-width: 768px) {
+    .post-list{
+        gap: 3px;
+    }
+}
